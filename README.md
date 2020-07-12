@@ -1,4 +1,4 @@
-# instagram Clone coding
+# Dailygram Clone coding
 
 ## Skill used
 
