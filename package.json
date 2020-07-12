@@ -1,0 +1,24 @@
+{
+  "name": "instagram",
+  "version": "1.0.0",
+  "description": "VanillaJS and NodeJS",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Nam Eungyeong",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "@babel/polyfill": "^7.10.4",
+    "core-js": "^3.6.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node init.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/preset-env": "^7.10.4"
+  }
+}
