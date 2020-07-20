@@ -1,23 +1,24 @@
 // 어디에나 존재해야 할 URL
-const HOME = "/",
-  JOIN = "/join",
-  LOGIN = "/login",
-  LOGOUT = "/logout";
+const HOME = "/";
+const JOIN = "/join";
+const LOGIN = "/login";
+const LOGOUT = "/logout";
 
 // 유저한테 보여질 URL
 
-const USERS = "/users",
-  USER_PAGE = "/:id",
-  EDIT_PROFILE = "/edit-profile",
-  ME = "/me";
+const USERS = "/users";
+const USER_PAGE = "/:id";
+const EDIT_PROFILE = "/edit-profile";
+const ME = "/me";
+const DIRECT = "/direct";
 
 // 이미지가 올라가는 URL
 
-const IMAGES = "/images",
-  UPLOAD = "/upload",
-  IMAGE_DETAIL = "/:id",
-  DELETE_IMAGE = "/:id/deleta",
-  DELETE_COMMENT = "/:id/delete-comment";
+const IMAGES = "/images";
+const UPLOAD = "/upload";
+const IMAGE_DETAIL = "/:id";
+const DELETE_IMAGE = "/:id/deleta";
+const DELETE_COMMENT = "/:id/delete-comment";
 
 const routes = {
   home: HOME,
@@ -57,6 +58,7 @@ const routes = {
     }
   },
   me: ME,
+  direct: DIRECT,
 };
 
 export default routes;

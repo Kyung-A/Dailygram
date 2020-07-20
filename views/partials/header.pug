@@ -1,0 +1,30 @@
+hearder.hearder
+    .header-wrap
+        .header-logo
+            a(href=routes.home)
+                i.fab.fa-instagram
+                p Dailygram
+        .header-gnb
+            ul
+                if !loggedUser
+                    li
+                        a(href=routes.login)
+                            i.far.fa-user-circle
+                    li
+                        a(href=routes.login)
+                            i.fas.fa-arrow-circle-up
+                    li
+                        a(href=routes.login)
+                            i.far.fa-comments
+                else
+                    li
+                        a(href=routes.userPage)
+                            img.u-avatar(src=user.avatarUrl)
+                    li
+                        a(href=routes.upload)
+                            i.fas.fa-arrow-circle-up
+                    li
+                        a(href=routes.direct)
+                            i.far.fa-comments
+
+                            

@@ -1,29 +1,18 @@
-import routes from "../routes";
+export const me = (req, res) => res.render("Me");
 
-export const home = (req, res) => {
-  res.send("Home page");
-};
+export const join = (req, res) => res.render("join", { pageTitle: "Join" });
 
-export const me = (req, res) => {
-  res.send("Me page");
-};
+export const login = (req, res) => res.render("login", { pageTitle: "Login" });
 
-export const upload = (req, res) => {
-  res.send("upload page");
-};
+export const logout = (req, res) => res.render("logout");
 
-export const join = (req, res) => {
-  res.send("join page");
-};
+export const users = (req, res) => res.render("users");
 
-export const login = (req, res) => {
-  res.send("login page");
-};
+export const userPage = (req, res) =>
+  res.render("userPage", { pageTitle: "UserPage" });
 
-export const logout = (req, res) => {
-  res.send("logout page");
-};
+export const editProfile = (req, res) =>
+  res.render("editProfile", { pageTitle: "EditProfile" });
 
-export const editProfile = (req, res) => {
-  res.send("edit Profile");
-};
+export const direct = (req, res) =>
+  res.render("direct", { pageTitle: "Direct" });

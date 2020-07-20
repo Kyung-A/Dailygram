@@ -1,0 +1,5 @@
+mixin imageBlock(image = {})
+    .imageBlock
+        a(href=routes.imageDetail(image.id))
+            image.imageBlock-content(src=image.imageFile)
+            h4.videoBlock-title=image.creator

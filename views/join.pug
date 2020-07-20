@@ -1,0 +1,13 @@
+extends layouts/main
+
+block content
+    .form-container
+        from(action=routes.join, method="post")
+            input(type="text", name="name", placeholder="닉네임", requtred=true)
+            input(type="email", name="email", placeholder="이메일", requtred=true)
+            input(type="password", name="password", placeholder="비밀번호" requtred=true)
+            input(type="password", name="password2", placeholder="비밀번호 확인" requtred=true)
+            input(type="submit", value="회원가입")
+            button 
+                a(href=routes.login) 로그인
+        include partials/socialLogin
