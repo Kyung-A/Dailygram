@@ -6,7 +6,7 @@ hearder.hearder
                 p Dailygram
         .header-gnb
             ul
-                if !loggedUser
+                if !user.isAuthenticated
                     li
                         a(href=routes.login)
                             i.far.fa-user-circle
@@ -18,13 +18,13 @@ hearder.hearder
                             i.far.fa-comments
                 else
                     li
-                        a(href=routes.userPage)
-                            img.u-avatar(src=user.avatarUrl)
+                        a(href=routes.userPage(user.id))
+                            i.far.fa-user-circle
                     li
-                        a(href=routes.upload)
+                        a(href=`/images${routes.upload}`)
                             i.fas.fa-arrow-circle-up
                     li
-                        a(href=routes.direct)
+                        a(href=`/users${routes.direct}`)
                             i.far.fa-comments
 
                             

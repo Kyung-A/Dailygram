@@ -1,0 +1,9 @@
+extends layouts/main
+
+block content
+    .form-container
+        form(action=routes.editImage, method="post")
+            textarea(name="description", placeholder="내용")
+            input(type="submit", value="수정완료")
+        a.from-delete(href=routes.deleteImage)
+            button.delete 게시물 삭제

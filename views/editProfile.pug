@@ -1,3 +1,11 @@
 extends layouts/main
 
 block content
+    .form-container
+        form(action=routes.editProfile, method="post")
+            .avatarUpload
+                label(for="avatar") 프로필 사진
+                input(type="file", id="avatar", name="avatar", accept="image/*")
+            input(type="text", placeholder="이름", name="name")
+            input(type="email", placeholder="이메일", name="email")
+            input(type="submit", value="수정완료")

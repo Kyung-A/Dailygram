@@ -17,6 +17,7 @@ const DIRECT = "/direct";
 const IMAGES = "/images";
 const UPLOAD = "/upload";
 const IMAGE_DETAIL = "/:id";
+const EDIT_IMAGE = "/:id/edit";
 const DELETE_IMAGE = "/:id/deleta";
 const DELETE_COMMENT = "/:id/delete-comment";
 
@@ -34,6 +35,13 @@ const routes = {
     }
   },
   editProfile: EDIT_PROFILE,
+  editImage: (id) => {
+    if (id) {
+      return `/users/${id}`;
+    } else {
+      return EDIT_IMAGE;
+    }
+  },
   images: IMAGES,
   upload: UPLOAD,
   imageDetail: (id) => {

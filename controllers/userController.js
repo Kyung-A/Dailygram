@@ -1,8 +1,29 @@
-export const me = (req, res) => res.render("Me");
+import routes from "../routes";
 
-export const join = (req, res) => res.render("join", { pageTitle: "Join" });
+//회원가입 페이지
+export const getJoin = (req, res) => {
+  res.render("join", { pageTitle: "Join" });
+};
 
-export const login = (req, res) => res.render("login", { pageTitle: "Login" });
+export const postJoin = (req, res) => {
+  const {
+    body: { name, email, password, password2 },
+  } = req;
+  if (password !== password2) {
+    res.status(400);
+    res.render("join", { pageTitle: "Join" });
+  } else {
+    res.redirect(routes.home);
+  }
+};
+
+// 로그인 페이지
+export const getLogin = (req, res) =>
+  res.render("login", { pageTitle: "Login" });
+
+export const postLogin = (req, res) => {
+  res.redirect(routes.home);
+};
 
 export const logout = (req, res) => res.render("logout");
 

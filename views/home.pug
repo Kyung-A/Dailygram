@@ -1,4 +1,11 @@
 extends layouts/main
+include mixins/imageBlock
 
 block content
     .home-images
+        each item in images
+            +imageBlock({
+                imageFile:item.imageFile,
+                creator: item.creator.name,
+                newDate: item.newDate
+            })

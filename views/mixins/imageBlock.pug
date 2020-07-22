@@ -1,0 +1,7 @@
+mixin imageBlock(image = {})
+    .imageBlock
+        a(href=routes.imageDetail(image.id))
+            img.titleImage(src=image.imageFile)
+            .imageHover
+                strong.imageCreator=image.creator
+                p.imageDate=image.newDate
