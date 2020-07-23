@@ -1,11 +1,19 @@
-import { images } from "../db";
+import routes from "../routes";
 
 export const home = (req, res) => {
   res.render("home", { pageTitle: "Home", images });
 };
 
-export const upload = (req, res) =>
+// 업로드 페이지
+export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload" });
+
+export const postUpload = (req, res) => {
+  const {
+    body: { file, description },
+  } = req;
+  res.redirect(routes.imageDetail(241349));
+};
 
 export const imageDetail = (req, res) =>
   res.render("imageDetail", { pageTitle: "ImageDetail" });

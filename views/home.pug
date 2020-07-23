@@ -5,6 +5,7 @@ block content
     .home-images
         each item in images
             +imageBlock({
+                id: item.id,
                 imageFile:item.imageFile,
                 creator: item.creator.name,
                 newDate: item.newDate

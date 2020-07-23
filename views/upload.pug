@@ -2,9 +2,9 @@ extends layouts/main
 
 block content
     .form-container
-        form(action=routes.upload, method="post")
+        form(action=`/images${routes.upload}` method="post")
             div.imageUpload
                 label(for="file") 이미지 파일
-                input(type="file", id="file", name="이미지 파일", required=true, accept="video/*")
+                input(type="file", id="file", name="이미지 파일", required=true, accept="image/*")
             textarea(name="description", placeholder="내용", required=true)
             input(type="submit", value="이미지 업로드")
