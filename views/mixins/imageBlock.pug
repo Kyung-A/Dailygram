@@ -3,5 +3,5 @@ mixin imageBlock(image = {})
         a(href=routes.imageDetail(image.id))
             img.titleImage(src=image.imageFile)
             .imageHover
-                strong.imageCreator=image.creator
-                p.imageDate=image.newDate
+                p.imageCreator=image.creator
+                p.imageDate=image.createdAt

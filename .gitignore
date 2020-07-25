@@ -2,7 +2,8 @@
 .fuseBox/
 package-lock.json
 node_modules
-
+.env
+uploads
 
 # Built application files
 *.apk

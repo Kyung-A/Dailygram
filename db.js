@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
+dotenv.config();
+
 // string으로 저장된 db, 데이터베이스가 있는 위치
-mongoose.connect("mongodb://localhost:27017/daliygram", {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,

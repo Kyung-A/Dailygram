@@ -1,18 +1,33 @@
 import routes from "../routes";
+import Image from "../models/Image";
+import Comment from "../models/Comment";
 
-export const home = (req, res) => {
-  res.render("home", { pageTitle: "Home", images });
+export const home = async (req, res) => {
+  try {
+    const images = await Image.find({});
+    res.render("home", { pageTitle: "Home", images });
+  } catch (error) {
+    console.log(error);
+    res.render("home", { pageTitle: "Home", images: [] });
+  }
 };
 
 // 업로드 페이지
 export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload" });
 
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
   const {
-    body: { file, description },
+    body: { description, createdAt },
+    file: { path },
   } = req;
-  res.redirect(routes.imageDetail(241349));
+  const newImage = await Image.create({
+    fileUrl: path.replace(/\\/g, "/"),
+    description,
+    createdAt,
+  });
+  console.log(newImage);
+  res.redirect(routes.imageDetail(newImage.id));
 };
 
 export const imageDetail = (req, res) =>
