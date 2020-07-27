@@ -1,4 +1,6 @@
+import passport from "passport";
 import routes from "../routes";
+import User from "../models/User";
 
 //회원가입 페이지
 export const getJoin = (req, res) => {
@@ -25,6 +27,7 @@ export const postLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
+// 로그아웃
 export const logout = (req, res) => {
   res.redirect(routes.home);
 };

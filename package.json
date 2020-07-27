@@ -10,22 +10,42 @@
     "@babel/core": "^7.10.4",
     "@babel/node": "^7.10.4",
     "@babel/polyfill": "^7.10.4",
+    "autoprefixer": "^9.8.5",
+    "babel-loader": "^8.1.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "core-js": "^3.6.5",
+    "css-loader": "^4.0.0",
     "dotenv": "^8.2.0",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "helmet": "^3.23.3",
     "mongoose": "^5.9.25",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
-    "pug": "^3.0.0"
+    "node-sass": "^4.14.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^2.0.5",
+    "pug": "^3.0.0",
+    "sass-loader": "^9.0.2",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node init.js --delay 2"
+    "dev:server": "nodemon --exec babel-node init.js --delay 2",
+    "dev:assets": "set cross-env WEBPACK_ENV=development&&webpack -w",
+    "build:assets": "set cross-env WEBPACK_ENV=production&&webpack"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
-    "@babel/preset-env": "^7.10.4"
+    "@babel/preset-env": "^7.10.4",
+    "cross-env": "^7.0.2",
+    "mini-css-extract-plugin": "^0.9.0"
   }
 }

@@ -18,7 +18,7 @@ const IMAGES = "/images";
 const UPLOAD = "/upload";
 const IMAGE_DETAIL = "/:id";
 const EDIT_IMAGE = "/:id/edit";
-const DELETE_IMAGE = "/:id/deleta";
+const DELETE_IMAGE = "/:id/delete";
 const DELETE_COMMENT = "/:id/delete-comment";
 
 const routes = {
@@ -37,7 +37,7 @@ const routes = {
   editProfile: EDIT_PROFILE,
   editImage: (id) => {
     if (id) {
-      return `/users/${id}`;
+      return `/images/${id}/edit`;
     } else {
       return EDIT_IMAGE;
     }

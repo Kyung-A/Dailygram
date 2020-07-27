@@ -4,6 +4,8 @@ import helmet from "helmet";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import passport from "passport";
+import session from "express-session";
 import mainRouter from "./routers/mainRouter";
 import userRouter from "./routers/userRouter";
 import imageRouter from "./routers/imageRouter";

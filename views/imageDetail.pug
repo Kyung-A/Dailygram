@@ -1,4 +1,22 @@
 extends layouts/main
 
 block content
-    p imageDetail
+    .image-box
+        img(src=`/${image.fileUrl}`)
+    .image-info
+        button.edit-img
+            a(href=routes.editImage(image.id)) 수정하기
+        strong.uploads-user
+            a(href=routes.userPage(image.creator)) 게시자
+        p.image-description=image.description
+    .image-comments
+        form.add-comment#jsAddComment
+            input(type="text", placeholder="댓글 입력")
+        ul.comment-list#jsCommentList
+            each comment in image.comments.reverse()
+                li
+                    span=comment.text
+        if image.comments.length === 1
+            span.comment-number 1 comment
+        else
+            span.comment-number #{image.comments.length} comments
