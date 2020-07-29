@@ -1,3 +1,9 @@
-body {
-  background-color: pink;
-}
+@import "config/_variables";
+@import "config/reset.scss";
+@import "main.scss";
+
+@import "partials/header.scss";
+@import "partials/footer.scss";
+@import "partials/imageBlock.scss";
+
+@import "pages/home.scss";

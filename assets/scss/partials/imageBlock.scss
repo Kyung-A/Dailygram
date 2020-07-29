@@ -1,0 +1,32 @@
+.imageBlock {
+  width: 100%;
+  position: relative;
+  a {
+    max-width: 100%;
+    img {
+      width: 100%;
+    }
+    .imageHover {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.377);
+      text-align: center;
+      opacity: 0;
+      p {
+        color: #fff;
+        font-family: $font;
+        font-weight: 600;
+        font-size: 1em;
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 43%;
+      }
+    }
+  }
+  a:hover .imageHover {
+    opacity: 1;
+  }
+}

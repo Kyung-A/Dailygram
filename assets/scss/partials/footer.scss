@@ -1,0 +1,17 @@
+.footer {
+  width: 100%;
+  box-sizing: border-box;
+  .footer-wrap {
+    text-align: center;
+    i,
+    span {
+      padding: 30px 3px;
+      font-size: 1em;
+      color: rgb(185, 185, 185);
+    }
+    span {
+      font-family: $font;
+      font-weight: 600;
+    }
+  }
+}

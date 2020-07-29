@@ -4,6 +4,7 @@ package-lock.json
 node_modules
 .env
 uploads
+static
 
 # Built application files
 *.apk
