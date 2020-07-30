@@ -4,4 +4,5 @@ mixin imageBlock(image = {})
             img.titleImage(src=image.imageFile)
             .imageHover
                 p.imageCreator=image.creator
-                p.imageDate=image.createdAt
+                p.imageDate #{image.createdAt.getFullYear()} #{image.createdAt.getMonth()+1} #{image.createdAt.getDate()} 
+                

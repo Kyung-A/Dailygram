@@ -1,0 +1,29 @@
+.social-login {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 300px;
+  margin-top: 20px;
+  button {
+    width: 48%;
+    border: none;
+    padding: 10px 0px;
+    border: $borderColor;
+    a {
+      color: #fff;
+      font-family: $font;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+  }
+  .naver-login {
+    background-color: rgb(42, 204, 20);
+    margin-right: 1%;
+  }
+  .kakao-login {
+    background-color: rgb(41, 83, 199);
+    margin-left: 1%;
+  }
+}
