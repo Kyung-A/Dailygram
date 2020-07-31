@@ -5,6 +5,17 @@ block content
         form(action=`/images${routes.upload}` method="post", enctype="multipart/form-data")
             div.imageUpload
                 label(for="file") 이미지 업로드
-                input(type="file", id="file", name="imageFile", required=true, accept="image/*")
+                input(
+                    type="file", 
+                    id="jsuploadFile", 
+                    name="imageFile", 
+                    required=true, 
+                    accept="image/*", 
+                    )
+                img(
+                    src="https://da761b9bac0f39e103f9-da88e074220b13c54d3e0f04faed8eda.ssl.cf2.rackcdn.com/uploaded/i/0e9982838_1584457055_instagram-logo-gcck.png", 
+                    alt="미리보기"
+                    )#jsTumbnail
             textarea(name="description", placeholder="내용", required=true)
             input(type="submit", value="이미지 업로드")
+
