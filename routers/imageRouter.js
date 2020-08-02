@@ -9,21 +9,21 @@ import {
   getUpload,
   postUpload,
 } from "../controllers/imageContriller";
-import { uploadImage } from "../middlewares";
+import { uploadImage, onlyPrivate, onlyPublic } from "../middlewares";
 
 const imageRouter = express.Router();
 
 // 업로드
-imageRouter.get(routes.upload, getUpload);
-imageRouter.post(routes.upload, uploadImage, postUpload);
+imageRouter.get(routes.upload, onlyPrivate, getUpload);
+imageRouter.post(routes.upload, onlyPrivate, uploadImage, postUpload);
 // 이미지 디테일
-imageRouter.get(routes.imageDetail(), imageDetail);
+imageRouter.get(routes.imageDetail(), onlyPublic, imageDetail);
 // 이미지 삭제
-imageRouter.get(routes.deleteImage(), deleteImage);
+imageRouter.get(routes.deleteImage(), onlyPrivate, deleteImage);
 // 댓글 삭제
-imageRouter.get(routes.deleteComment(), deleteComment);
+imageRouter.get(routes.deleteComment(), onlyPrivate, deleteComment);
 // 이미지 수정
-imageRouter.get(routes.editImage(), getEditImage);
-imageRouter.post(routes.editImage(), postEditImage);
+imageRouter.get(routes.editImage(), onlyPrivate, getEditImage);
+imageRouter.post(routes.editImage(), onlyPrivate, postEditImage);
 
 export default imageRouter;

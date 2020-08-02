@@ -7,7 +7,7 @@
     width: 100%;
     max-width: 300px;
     flex: 1;
-    input:not([type="file"]) {
+    input:not([type="password"]) {
       display: block;
       width: 100%;
       padding: 8px 10px;
@@ -15,16 +15,18 @@
       font-family: $font;
       font-size: 0.9em;
       margin: 20px 0px;
-      border: $borderColor;
+      border: none;
       border-radius: 30px;
+      border: $borderColor;
       &::placeholder {
         color: rgb(151, 151, 151);
       }
     }
     input[type="submit"] {
       font-weight: 600;
-      background-color: rgb(204, 23, 129);
+      background-color: $buttonBg;
       color: #fff;
+      border: none;
     }
     p {
       margin-top: 50px;
@@ -38,7 +40,7 @@
       width: 100%;
       margin: 10px 0px;
       a {
-        color: rgb(204, 23, 129);
+        color: $buttonBg;
         font-family: $font;
         font-size: 1.3em;
         font-weight: 800;
@@ -57,10 +59,30 @@
       color: rgb(56, 56, 56);
     }
     input[type="file"] {
-      width: 25%;
+      width: 26%;
       word-wrap: break-word;
       font-family: $font;
       margin-bottom: 10px;
+      border: none;
+      padding: 0px;
+      margin: 20px 0px;
+      border-radius: 0px;
+    }
+    input[type="password"] {
+      display: block;
+      width: 100%;
+      padding: 8px 10px;
+      box-sizing: border-box;
+      font-size: 0.9em;
+      margin: 20px 0px;
+      border: none;
+      border-radius: 30px;
+      border: $borderColor;
+      font-family: Arial, Helvetica, sans-serif;
+      &::placeholder {
+        color: rgb(151, 151, 151);
+        font-family: $font;
+      }
     }
     .imageUpload img {
       width: 100%;
@@ -74,6 +96,21 @@
       margin: 15px 0px;
       font-family: $font;
       font-size: 1em;
+    }
+    a.from-delete {
+      width: 100%;
+
+      button.delete {
+        border: none;
+        background-color: $buttonBg;
+        text-align: center;
+        padding: 8px 10px;
+        font-family: $font;
+        font-size: 0.9em;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 30px;
+      }
     }
   }
 }

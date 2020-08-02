@@ -6,7 +6,7 @@ header.header
                 p Dailygram
         .header-gnb
             ul
-                if !user.isAuthenticated
+                if !user
                     li
                         a(href=routes.login)
                             i.far.fa-user-circle

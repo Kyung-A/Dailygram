@@ -7,6 +7,7 @@ dotenv.config();
 
 import "./models/Image";
 import "./models/Comment";
+import "./models/User";
 
 app.listen(process.env.PORT, () => {
   console.log(`✅ OK localhost ${process.env.PORT}`);

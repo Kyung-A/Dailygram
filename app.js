@@ -6,13 +6,18 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import mainRouter from "./routers/mainRouter";
 import userRouter from "./routers/userRouter";
 import imageRouter from "./routers/imageRouter";
 import routes from "./routes";
 import { localsMiddleware } from "./middlewares";
 
+import "./passport";
+
 const app = express();
+
+const CookieStore = MongoStore(session);
 
 //미들웨어
 app.use(helmet());
@@ -23,6 +28,16 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(
+  session({
+    secret: process.env.COOKIE,
+    resave: true,
+    saveUninitialized: false,
+    store: new CookieStore({ mongooseConnection: mongoose.connection }),
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(localsMiddleware);
 
 //라우터

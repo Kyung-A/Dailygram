@@ -1,0 +1,96 @@
+.imageDetail-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .image-box {
+    width: 80%;
+    max-width: 50%;
+    min-width: 80%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+  .image-info {
+    width: 80%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    strong.uploads-user {
+      font-family: $font;
+      font-size: 1.5em;
+      justify-content: flex-start;
+      a {
+        color: rgb(61, 61, 61);
+      }
+    }
+    button.edit-img {
+      justify-content: flex-end;
+      background-color: $buttonBg;
+      border-radius: 30px;
+      font-family: $font;
+      border: none;
+      margin-top: -8px;
+      a {
+        color: #fff;
+        font-size: 1.2em;
+        padding: 0px 15px;
+      }
+    }
+  }
+  .image-description {
+    width: 80%;
+    height: 60px;
+    margin: 20px 0px;
+    font-family: $font;
+    font-size: 1em;
+    text-align: left;
+    font-weight: 600;
+    color: rgb(61, 61, 61);
+  }
+  .image-comments {
+    width: 80%;
+    .add-comment {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 30px;
+      input[type="text"] {
+        width: 80%;
+        margin-right: 5%;
+        border: $borderColor;
+        border-radius: 30px;
+        justify-content: flex-start;
+        font-family: $font;
+        &::placeholder {
+          padding-left: 10px;
+        }
+      }
+      input[type="submit"] {
+        width: 14%;
+        border: none;
+        justify-content: flex-end;
+        background-color: $buttonBg;
+        border-radius: 30px;
+        color: #fff;
+        font-family: $font;
+        font-size: 1.1em;
+      }
+    }
+    .comment-list {
+      width: 100%;
+    }
+  }
+  span {
+    font-family: $font;
+    border-bottom: $borderColor;
+    width: 100%;
+    display: block;
+    padding: 10px 0px;
+    text-align: center;
+    color: rgb(61, 61, 61);
+  }
+}
