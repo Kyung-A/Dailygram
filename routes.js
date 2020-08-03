@@ -21,6 +21,13 @@ const EDIT_IMAGE = "/:id/edit";
 const DELETE_IMAGE = "/:id/delete";
 const DELETE_COMMENT = "/:id/delete-comment";
 
+// 네이버, 카카오 로그인
+
+const NAVER = "/auth/naver",
+  NAVER_CALLBACK = "/auth/naver/callback",
+  KAKAO = "/auth/kakao",
+  KAKAO_CALLBACK = "/auth/kakao/callback";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -67,6 +74,10 @@ const routes = {
   },
   me: ME,
   direct: DIRECT,
+  naver: NAVER,
+  naverCallback: NAVER_CALLBACK,
+  kakao: KAKAO,
+  kakaoCallback: KAKAO_CALLBACK,
 };
 
 export default routes;

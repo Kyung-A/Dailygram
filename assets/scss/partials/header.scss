@@ -5,6 +5,7 @@
   background-color: #fff;
   border-bottom: $borderColor;
   position: fixed;
+  z-index: 99;
   .header-wrap {
     display: flex;
     flex-shrink: 0;

@@ -6,7 +6,7 @@ header.header
                 p Dailygram
         .header-gnb
             ul
-                if !user
+                if !loggedUser
                     li
                         a(href=routes.login)
                             i.far.fa-user-circle
@@ -18,7 +18,7 @@ header.header
                             i.far.fa-comments
                 else
                     li
-                        a(href=routes.userPage(user.id))
+                        a(href=routes.me)
                             i.far.fa-user-circle
                     li
                         a(href=`/images${routes.upload}`)

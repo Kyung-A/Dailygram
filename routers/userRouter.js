@@ -3,16 +3,16 @@ import routes from "../routes";
 import {
   users,
   userPage,
-  editProfile,
+  getEditProfile,
   direct,
 } from "../controllers/userController";
-import { onlyPrivate, onlyPublic } from "../middlewares";
+import { onlyPrivate } from "../middlewares";
 
 const userRouter = express.Router();
 
 userRouter.get(routes.users, onlyPrivate, users);
-userRouter.get(routes.userPage(), onlyPublic, userPage);
-userRouter.get(routes.editProfile, onlyPrivate, editProfile);
+userRouter.get(routes.userPage(), userPage);
+userRouter.get(routes.editProfile, onlyPrivate, getEditProfile);
 userRouter.get(routes.direct, onlyPrivate, direct);
 
 export default userRouter;

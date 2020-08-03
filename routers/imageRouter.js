@@ -9,7 +9,7 @@ import {
   getUpload,
   postUpload,
 } from "../controllers/imageContriller";
-import { uploadImage, onlyPrivate, onlyPublic } from "../middlewares";
+import { uploadImage, onlyPrivate } from "../middlewares";
 
 const imageRouter = express.Router();
 
@@ -17,7 +17,7 @@ const imageRouter = express.Router();
 imageRouter.get(routes.upload, onlyPrivate, getUpload);
 imageRouter.post(routes.upload, onlyPrivate, uploadImage, postUpload);
 // 이미지 디테일
-imageRouter.get(routes.imageDetail(), onlyPublic, imageDetail);
+imageRouter.get(routes.imageDetail(), imageDetail);
 // 이미지 삭제
 imageRouter.get(routes.deleteImage(), onlyPrivate, deleteImage);
 // 댓글 삭제

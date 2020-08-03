@@ -1,0 +1,39 @@
+.user-profile {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .user-profile-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    min-width: 300px;
+    img {
+      width: 100%;
+      height: 300px;
+      border-radius: 500px;
+      background-image: url("https://da761b9bac0f39e103f9-da88e074220b13c54d3e0f04faed8eda.ssl.cf2.rackcdn.com/uploaded/i/0e9982838_1584457055_instagram-logo-gcck.png");
+      background-size: 110%;
+      background-position: center;
+    }
+    h3 {
+      font-family: $font;
+      margin: 30px 0px;
+      font-size: 1.3em;
+    }
+  }
+  .user-edit-button {
+    a button {
+      color: #fff;
+      border: none;
+      background-color: $buttonBg;
+      padding: 10px 50px;
+      font-family: $font;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9em;
+    }
+  }
+}
