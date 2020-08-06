@@ -119,17 +119,9 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const users = (req, res) => res.render("users");
-
 // 로그인 상태의 유저
 export const getMe = async (req, res) => {
-  try {
-    const user = await User.findById(req.user.id);
-    console.log(user);
-    res.render("userPage", { pageTitle: "User Page", user });
-  } catch (error) {
-    res.redirect(routes.home);
-  }
+  res.render("userPage", { pageTitle: "User Page", user: req.user });
 };
 
 // 유저 프로필 페이지이지만 home으로 넘어간다. 에러페이지가 안뜨기 위한 설정
@@ -140,16 +132,16 @@ export const userPage = async (req, res) => {
   try {
     const user = await User.findById(id);
     res.render("userPage", { pageTitle: "User Page", user });
-    console.log(req.user);
+    console.log(user);
   } catch (error) {
-    console.log("error", "유저를 찾을 수 없습니다");
     res.redirect(routes.home);
   }
 };
 
 // 프로필 수정 페이지
-export const getEditProfile = (req, res) =>
+export const getEditProfile = (req, res) => {
   res.render("editProfile", { pageTitle: "EditProfile" });
+};
 
 export const postEditProfile = async (req, res) => {
   const {
@@ -162,7 +154,7 @@ export const postEditProfile = async (req, res) => {
       email,
       avatarUrl: file ? file.path : req.user.avatarUrl,
     });
-    req.redirect(routes.me);
+    res.redirect(routes.me);
   } catch (error) {
     console.log(error);
     res.redner("editProfile", { pageTitle: "Edit Profile" });
