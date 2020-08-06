@@ -145,8 +145,32 @@ export const userPage = async (req, res) => {
 };
 
 // 프로필 수정 페이지
-export const getEditProfile = (req, res) =>
-  res.render("editProfile", { pageTitle: "EditProfile" });
+export const getEditProfile = (req, res) => {
+  try {
+    res.render("editProfile", { pageTitle: "EditProfile" });
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.userPage);
+  }
+};
+
+export const postEditProfile = async (req, res) => {
+  const {
+    body: { name, email },
+    file: { path },
+  } = req;
+  try {
+    await User.findByIdAndUpdate(req.user.id, {
+      name,
+      email,
+      avatarUrl: file ? file.path : req.user.avatarUrl,
+    });
+    req.redirect(routes.me);
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.editProfile);
+  }
+};
 
 export const direct = (req, res) =>
   res.render("direct", { pageTitle: "Direct" });

@@ -2,6 +2,7 @@ import multer from "multer";
 import routes from "./routes";
 
 const multerImage = multer({ dest: "uploads/images/" });
+const multerAvatar = multer({ dest: "uploads/avatar/" });
 
 export const localsMiddleware = (req, res, next) => {
   res.locals.routes = routes;
@@ -29,3 +30,4 @@ export const onlyPrivate = (req, res, next) => {
 };
 
 export const uploadImage = multerImage.single("imageFile");
+export const uploadAvatar = multerAvatar.single("avatar");

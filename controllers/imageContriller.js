@@ -44,7 +44,7 @@ export const imageDetail = async (req, res) => {
   }
 };
 
-//이미지 수정 페이지
+//이미지 게시물 수정 페이지
 export const getEditImage = async (req, res) => {
   const {
     params: { id },
