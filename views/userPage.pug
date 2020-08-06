@@ -1,5 +1,4 @@
 extends layouts/main
-include mixins/imageBlock
 
 block content
     .user-profile
@@ -10,10 +9,4 @@ block content
             .user-edit-button
                 a(href=`/users${routes.editProfile}`)
                     button 프로필 수정하기
-        .home-images
-            each item in user.images
-                +imageBlock({
-                    id: item.id,
-                    imageFile:item.fileUrl
-                })
             

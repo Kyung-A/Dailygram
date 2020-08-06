@@ -124,7 +124,8 @@ export const users = (req, res) => res.render("users");
 // 로그인 상태의 유저
 export const getMe = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).populate("images");
+    const user = await User.findById(req.user.id);
+    console.log(user);
     res.render("userPage", { pageTitle: "User Page", user });
   } catch (error) {
     res.redirect(routes.home);
@@ -137,27 +138,23 @@ export const userPage = async (req, res) => {
     params: { id },
   } = req;
   try {
-    const user = await User.findById(id).populate("images");
+    const user = await User.findById(id);
     res.render("userPage", { pageTitle: "User Page", user });
+    console.log(req.user);
   } catch (error) {
+    console.log("error", "유저를 찾을 수 없습니다");
     res.redirect(routes.home);
   }
 };
 
 // 프로필 수정 페이지
-export const getEditProfile = (req, res) => {
-  try {
-    res.render("editProfile", { pageTitle: "EditProfile" });
-  } catch (error) {
-    console.log(error);
-    res.redirect(routes.userPage);
-  }
-};
+export const getEditProfile = (req, res) =>
+  res.render("editProfile", { pageTitle: "EditProfile" });
 
 export const postEditProfile = async (req, res) => {
   const {
     body: { name, email },
-    file: { path },
+    file,
   } = req;
   try {
     await User.findByIdAndUpdate(req.user.id, {
@@ -168,7 +165,7 @@ export const postEditProfile = async (req, res) => {
     req.redirect(routes.me);
   } catch (error) {
     console.log(error);
-    res.redirect(routes.editProfile);
+    res.redner("editProfile", { pageTitle: "Edit Profile" });
   }
 };
 
