@@ -6,7 +6,7 @@ const ImageSchema = new mongoose.Schema({
     required: "파일 URL이 없습니다.",
   },
   description: String,
-  view: {
+  views: {
     type: Number,
     default: 0,
   },

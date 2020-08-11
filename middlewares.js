@@ -4,6 +4,9 @@ import routes from "./routes";
 const multerImage = multer({ dest: "uploads/images/" });
 const multerAvatar = multer({ dest: "uploads/avatars/" });
 
+export const uploadImage = multerImage.single("imageFile");
+export const uploadAvatar = multerAvatar.single("avatar");
+
 export const localsMiddleware = (req, res, next) => {
   res.locals.routes = routes;
   res.locals.loggedUser = req.user || null;
@@ -28,6 +31,3 @@ export const onlyPrivate = (req, res, next) => {
     res.redirect(routes.home);
   }
 };
-
-export const uploadImage = multerImage.single("imageFile");
-export const uploadAvatar = multerAvatar.single("avatar");

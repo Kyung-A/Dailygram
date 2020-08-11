@@ -21,7 +21,7 @@
     justify-content: space-between;
     strong.uploads-user {
       font-family: $font;
-      font-size: 1.5em;
+      font-size: 1.6em;
       justify-content: flex-start;
       a {
         color: rgb(61, 61, 61);
@@ -46,10 +46,18 @@
     height: 60px;
     margin: 20px 0px;
     font-family: $font;
-    font-size: 1em;
+    font-size: 1.1em;
     text-align: left;
     font-weight: 600;
     color: rgb(61, 61, 61);
+  }
+  .image_views {
+    text-align: left;
+    width: 80%;
+    font-family: $font;
+    color: rgb(61, 61, 61);
+    margin-top: 15px;
+    font-size: 0.9em;
   }
   .image-comments {
     width: 80%;
@@ -83,14 +91,14 @@
     .comment-list {
       width: 100%;
     }
-  }
-  span {
-    font-family: $font;
-    border-bottom: $borderColor;
-    width: 100%;
-    display: block;
-    padding: 10px 0px;
-    text-align: center;
-    color: rgb(61, 61, 61);
+    span {
+      font-family: $font;
+      border-bottom: $borderColor;
+      width: 100%;
+      display: block;
+      padding: 10px 0px;
+      text-align: center;
+      color: rgb(61, 61, 61);
+    }
   }
 }

@@ -6,9 +6,14 @@ block content
             img(src=`/${image.fileUrl}`)
         .image-info
             strong.uploads-user
-                a(href=routes.userPage(image.creator)) 게시자
-            button.edit-img
-                a(href=routes.editImage(image.id)) 수정하기
+                a(href=routes.userPage(image.creator.id))=image.creator.name
+            if loggedUser && loggedUser.id === image.creator.id
+                button.edit-img
+                    a(href=routes.editImage(image.id)) 수정하기
+        if image.views === 1
+            span.image_views 1 view
+        else
+            span.image_views #{image.views} views
         p.image-description=image.description
         .image-comments
             form.add-comment#jsAddComment

@@ -1,13 +1,11 @@
-import dotenv from "dotenv";
-import "./db";
-import app from "./app";
-import "./models/Image";
-
-dotenv.config();
-
 import "./models/Image";
 import "./models/Comment";
 import "./models/User";
+import dotenv from "dotenv";
+import "./db";
+import app from "./app";
+
+dotenv.config();
 
 app.listen(process.env.PORT, () => {
   console.log(`✅ OK localhost ${process.env.PORT}`);

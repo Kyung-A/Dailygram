@@ -3,6 +3,7 @@ const HOME = "/";
 const JOIN = "/join";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
+const USER_DELETE = "/:id/user-delete";
 
 // 유저한테 보여질 URL
 
@@ -27,6 +28,11 @@ const NAVER = "/auth/naver",
   NAVER_CALLBACK = "/auth/naver/callback",
   KAKAO = "/auth/kakao",
   KAKAO_CALLBACK = "/auth/kakao/callback";
+
+// 좋아요 기능 API
+const API = "/api",
+  REGISTER_LIKE = "/:id/view",
+  ADD_COMMENT = "/:id/comment";
 
 const routes = {
   home: HOME,
@@ -58,6 +64,13 @@ const routes = {
       return IMAGE_DETAIL;
     }
   },
+  userDelete: (id) => {
+    if (id) {
+      return `/users/${id}/user-delete`;
+    } else {
+      return USER_DELETE;
+    }
+  },
   deleteImage: (id) => {
     if (id) {
       return `/images/${id}/delete`;
@@ -78,6 +91,9 @@ const routes = {
   naverCallback: NAVER_CALLBACK,
   kakao: KAKAO,
   kakaoCallback: KAKAO_CALLBACK,
+  api: API,
+  registerLike: REGISTER_LIKE,
+  addComment: ADD_COMMENT,
 };
 
 export default routes;

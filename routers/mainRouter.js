@@ -12,8 +12,9 @@ import {
   kakaoLogin,
   postKakaoLogin,
   getMe,
+  userDelete,
 } from "../controllers/userController";
-import { home } from "../controllers/imageContriller";
+import { home } from "../controllers/imageController";
 import { onlyPrivate, onlyPublic } from "../middlewares";
 
 const mainRouter = express.Router();
@@ -47,5 +48,8 @@ mainRouter.get(
 
 // 로그아웃
 mainRouter.get(routes.logout, onlyPrivate, logout);
+
+// 회원탈퇴
+mainRouter.get(routes.userDelete(), userDelete);
 
 export default mainRouter;

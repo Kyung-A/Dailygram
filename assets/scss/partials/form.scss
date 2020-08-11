@@ -3,6 +3,23 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  a.from-delete {
+    width: 100%;
+    max-width: 300px;
+    flex: 1;
+    button.delete {
+      width: 100%;
+      border: none;
+      background-color: $buttonBg;
+      text-align: center;
+      padding: 8px 10px;
+      font-family: $font;
+      font-size: 0.9em;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 30px;
+    }
+  }
   form {
     width: 100%;
     max-width: 300px;
@@ -97,19 +114,11 @@
       font-family: $font;
       font-size: 1em;
     }
-    a.from-delete {
-      width: 100%;
-
-      button.delete {
-        border: none;
-        background-color: $buttonBg;
-        text-align: center;
-        padding: 8px 10px;
-        font-family: $font;
-        font-size: 0.9em;
-        color: #fff;
-        font-weight: 600;
-        border-radius: 30px;
+    .fileUpload {
+      text-align: center;
+      input[type="file"] {
+        width: 100%;
+        margin: 30px 0px;
       }
     }
   }

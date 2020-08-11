@@ -119,9 +119,33 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
+// 회원 탈퇴
+export const userDelete = async (req, res) => {
+  const {
+    params: { id }, //url에서 id를 얻어옴
+  } = req;
+
+  try {
+    const user = await User.findById(req.user.id);
+    if (user !== req.user.id) {
+      throw Error();
+    } else {
+      await User.findOneAndRemove({ _id: id });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect(routes.home);
+};
+
 // 로그인 상태의 유저
 export const getMe = async (req, res) => {
-  res.render("userPage", { pageTitle: "User Page", user: req.user });
+  try {
+    const user = await User.findById(req.user.id).populate("images");
+    res.render("userPage", { pageTitle: "User Page", user });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
 };
 
 // 유저 프로필 페이지이지만 home으로 넘어간다. 에러페이지가 안뜨기 위한 설정
@@ -130,26 +154,34 @@ export const userPage = async (req, res) => {
     params: { id },
   } = req;
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate("images");
     res.render("userPage", { pageTitle: "User Page", user });
-    console.log(user);
   } catch (error) {
     res.redirect(routes.home);
   }
 };
 
 // 프로필 수정 페이지
-export const getEditProfile = (req, res) => {
-  res.render("editProfile", { pageTitle: "EditProfile" });
+export const getEditProfile = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const user = await User.findById(id);
+    res.render("editProfile", { pageTitle: "EditProfile", user });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
 };
 
 export const postEditProfile = async (req, res) => {
   const {
-    body: { name, email },
+    body: { name, email, id },
     file,
   } = req;
   try {
     await User.findByIdAndUpdate(req.user.id, {
+      id,
       name,
       email,
       avatarUrl: file ? file.path : req.user.avatarUrl,

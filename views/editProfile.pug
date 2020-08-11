@@ -4,8 +4,8 @@ block content
     .form-container
         form(action=`/users${routes.editProfile}`, method="post", enctype="multipart/form-data")
             .fileUpload
-                label(for="avatar") 프로필 사진
-                input(type="file", id="avatar", name="avatar", accept="image/*")
+                label(for="avatar") 프로필 수정
+                input(type="file", id="avatar", name="avatar", accept="image/*", placeholder="이름")
             input(type="text", placeholder="이름", name="name", value=loggedUser.name)
             input(type="email", placeholder="이메일", name="email", value=loggedUser.email)
             input(type="submit", value="수정완료")

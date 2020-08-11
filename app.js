@@ -6,10 +6,12 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
+import path from "path";
 import MongoStore from "connect-mongo";
 import mainRouter from "./routers/mainRouter";
 import userRouter from "./routers/userRouter";
 import imageRouter from "./routers/imageRouter";
+import apiRouter from "./routers/apiRouter";
 import routes from "./routes";
 import { localsMiddleware } from "./middlewares";
 
@@ -22,8 +24,9 @@ const CookieStore = MongoStore(session);
 //미들웨어
 app.use(helmet());
 app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 app.use("/uploads", express.static("uploads"));
-app.use("/static", express.static("static"));
+app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -45,5 +48,6 @@ app.use(localsMiddleware);
 app.use(routes.home, mainRouter);
 app.use(routes.users, userRouter);
 app.use(routes.images, imageRouter);
+app.use(routes.api, apiRouter);
 
 export default app;

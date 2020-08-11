@@ -1,7 +1,7 @@
 mixin imageBlock(image = {})
     .imageBlock
         a(href=routes.imageDetail(image.id))
-            img.titleImage(src=image.imageFile)
+            img.titleImage(src=`/${image.imageFile}`)
             .imageHover
                 p.imageCreator=image.creator
                 p.imageDate #{image.createdAt.getFullYear()} #{image.createdAt.getMonth()+1} #{image.createdAt.getDate()} 
