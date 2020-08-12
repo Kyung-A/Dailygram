@@ -40,9 +40,6 @@ export const imageDetail = async (req, res) => {
     const image = await Image.findById(id) //위에서 params로 얻은 id
       .populate("creator")
       .populate("comments");
-    image.views += 1; //view 수 증가
-    image.save();
-    res.status(200);
     res.render("imageDetail", { pageTitle: "ImageDetail", image });
   } catch (error) {
     res.status(400);
@@ -99,7 +96,7 @@ export const deleteImage = async (req, res) => {
   res.redirect(routes.home);
 };
 
-// views 기능
+// 좋아요 기능
 export const postRegisterLike = async (req, res) => {
   const {
     params: { id },

@@ -10,20 +10,32 @@ block content
             if loggedUser && loggedUser.id === image.creator.id
                 button.edit-img
                     a(href=routes.editImage(image.id)) 수정하기
-        if image.views === 1
-            span.image_views 1 view
-        else
-            span.image_views #{image.views} views
         p.image-description=image.description
+        .image-likes
+            button#jsimageLike
+                i.far.fa-heart
+            if image.views === 1
+                span#imageLikeNumber 1 
+                | 좋아요
+            else
+                span#imageLikeNumber #{image.views}  
+                |  좋아요
         .image-comments
+            if image.comments.length === 1
+                span.comment-number 댓글  
+                    span#jsCommentNumber 1
+                    | 개
+            else
+                span.comment-number 댓글  
+                    span#jsCommentNumber=image.comments.length
+                    | 개
             form.add-comment#jsAddComment
                 input(type="text", placeholder="댓글 입력")
-                input(type="submit", value="게시")
+                button#jsSubmitBtn 게시
             ul.comment-list#jsCommentList
                 each comment in image.comments.reverse()
                     li
                         span=comment.text
-            if image.comments.length === 1
-                span.comment-number 1 comment
-            else
-                span.comment-number #{image.comments.length} comments
+                            .comment-user-info
+                                p=loggedUser.name
+                                button X

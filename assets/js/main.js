@@ -1,4 +1,4 @@
 import "../scss/styles.scss";
-import "./views";
+import "./likes";
 import "./addComment";
-import "./tumbnail";
+//import "./tumbnail";
