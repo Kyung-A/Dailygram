@@ -126,8 +126,8 @@ export const userDelete = async (req, res) => {
   } = req;
 
   try {
-    const user = await User.findById(req.user.id);
-    if (user !== req.user.id) {
+    const user = await User.findById(id);
+    if (String(user.id) !== req.user.id) {
       throw Error();
     } else {
       await User.findOneAndRemove({ _id: id });
@@ -193,5 +193,6 @@ export const postEditProfile = async (req, res) => {
   }
 };
 
-export const direct = (req, res) =>
+export const direct = (req, res) => {
   res.render("direct", { pageTitle: "Direct" });
+};

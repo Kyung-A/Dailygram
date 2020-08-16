@@ -20,7 +20,6 @@ const UPLOAD = "/upload";
 const IMAGE_DETAIL = "/:id";
 const EDIT_IMAGE = "/:id/edit";
 const DELETE_IMAGE = "/:id/delete";
-const DELETE_COMMENT = "/:id/delete-comment";
 
 // 네이버, 카카오 로그인
 
@@ -29,10 +28,11 @@ const NAVER = "/auth/naver",
   KAKAO = "/auth/kakao",
   KAKAO_CALLBACK = "/auth/kakao/callback";
 
-// 좋아요 기능 API
+// AJAX/API
 const API = "/api",
   REGISTER_LIKE = "/:id/view",
-  ADD_COMMENT = "/:id/comment";
+  ADD_COMMENT = "/:id/comment",
+  DELETE_COMMENT = "/:id/comment/delete";
 
 const routes = {
   home: HOME,
@@ -78,13 +78,7 @@ const routes = {
       return DELETE_IMAGE;
     }
   },
-  deleteComment: (id) => {
-    if (id) {
-      return `/images/${id}/delete-comment`;
-    } else {
-      return DELETE_COMMENT;
-    }
-  },
+  deleteComment: DELETE_COMMENT,
   me: ME,
   direct: DIRECT,
   naver: NAVER,

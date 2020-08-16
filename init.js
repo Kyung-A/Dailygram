@@ -7,6 +7,9 @@ import app from "./app";
 
 dotenv.config();
 
-app.listen(process.env.PORT, () => {
+const PORT = process.env.PORT || 7000;
+
+const handleListening = () =>
   console.log(`✅ OK localhost ${process.env.PORT}`);
-});
+
+app.listen(PORT, handleListening);

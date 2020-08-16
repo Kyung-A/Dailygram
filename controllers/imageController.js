@@ -128,6 +128,7 @@ export const postAddComment = async (req, res) => {
     });
     image.comments.push(newComment._id);
     image.save();
+    res.send(JSON.stringify(newComment));
   } catch (error) {
     res.status(400);
   } finally {
@@ -136,4 +137,21 @@ export const postAddComment = async (req, res) => {
 };
 
 // 댓글 삭제
-export const deleteComment = (req, res) => res.render("deleteComment");
+export const postDeleteComment = async (req, res) => {
+  const {
+    params: { id },
+    user,
+  } = req;
+  try {
+    const comment = await Comment.findById(id);
+    if (String(comment.creator) !== user.id) {
+      throw Error();
+    } else {
+      await Comment.findOneAndRemove({ _id: id });
+    }
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};

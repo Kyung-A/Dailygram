@@ -18,8 +18,8 @@ block content
                 span#imageLikeNumber 1 
                 | 좋아요
             else
-                span#imageLikeNumber #{image.views}  
-                |  좋아요
+                span#imageLikeNumber #{image.views}   
+                |   좋아요
         .image-comments
             if image.comments.length === 1
                 span.comment-number 댓글  
@@ -35,7 +35,8 @@ block content
             ul.comment-list#jsCommentList
                 each comment in image.comments.reverse()
                     li
-                        span=comment.text
-                            .comment-user-info
-                                p=loggedUser.name
-                                button X
+                        if loggedUser && (String(comment.creator) === loggedUser.id)
+                            span#jsComment=comment.text
+                                button(id=String(comment._id)) X
+                        else
+                            span=comment.text

@@ -3,7 +3,6 @@ import routes from "../routes";
 import {
   imageDetail,
   deleteImage,
-  deleteComment,
   getEditImage,
   postEditImage,
   getUpload,
@@ -23,7 +22,5 @@ imageRouter.get(routes.editImage(), onlyPrivate, getEditImage);
 imageRouter.post(routes.editImage(), onlyPrivate, postEditImage);
 // 이미지 삭제
 imageRouter.get(routes.deleteImage(), onlyPrivate, deleteImage);
-// 댓글 삭제
-imageRouter.get(routes.deleteComment(), onlyPrivate, deleteComment);
 
 export default imageRouter;
