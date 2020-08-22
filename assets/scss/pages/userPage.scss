@@ -25,6 +25,8 @@
     }
   }
   .user-edit-button {
+    display: flex;
+    flex-direction: column;
     a button {
       color: #fff;
       border: none;
@@ -34,6 +36,8 @@
       border-radius: 60px;
       font-weight: 600;
       font-size: 0.9em;
+      width: 100%;
+      margin: 10px 0px;
     }
   }
   .userpage-images {

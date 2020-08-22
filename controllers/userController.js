@@ -130,7 +130,7 @@ export const userDelete = async (req, res) => {
     if (String(user.id) !== req.user.id) {
       throw Error();
     } else {
-      await User.findOneAndRemove({ _id: id });
+      await User.findByIdAndDelete({ _id: id });
     }
   } catch (error) {
     console.log(error);
