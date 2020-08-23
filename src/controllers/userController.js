@@ -127,7 +127,7 @@ export const userDelete = async (req, res) => {
 
   try {
     const user = await User.findById(id);
-    if (String(user.id) !== req.user.id) {
+    if (user.id !== req.user.id) {
       throw Error();
     } else {
       await User.findByIdAndDelete({ _id: id });
