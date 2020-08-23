@@ -2,20 +2,27 @@
 
 ## Skill used
 
-- [] Vanilla Js
-- [] Node JS
-- [] Express JS
-- [] Pug
-- [] Scss
+- [x] Vanilla Js
+- [x] Node JS
+- [x] Express JS
+- [x] Pug
+- [x] Scss
+- [x] Webpack
+- [x] Passport
+- [x] babel
 
 ## Page
 
-- [] Home
-- [] Join
-- [] Login
-- [] User Page
-- [] Edit User
-- [] Upload
-- [] Image Detail
-- [] Edit Image
-- [] Image Collect
+- [x] Home
+- [x] Join
+- [x] Login
+- [x] User Page
+- [x] Edit User
+- [x] Upload
+- [x] Image Detail
+- [x] Edit Image
+- [x] Image Collect
+- [x] Like Btn
+- [x] Comment
+- [] Direct
+- [] Delete User

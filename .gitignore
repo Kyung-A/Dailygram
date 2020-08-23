@@ -5,6 +5,7 @@ node_modules
 .env
 uploads
 static
+build
 
 # Built application files
 *.apk
