@@ -61,8 +61,8 @@
     "build:assets": "cd src && WEBPACK_ENV=production&&webpack",
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
     "copyAll": "cp -R src/static build && cp -R src/views build",
-    "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "rm -rf build",
+    "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "start": "PRODUCTION=true node build/init.js",
     "prestart": "npm run build"
   },
