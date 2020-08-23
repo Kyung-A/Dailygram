@@ -64,6 +64,5 @@
   "devDependencies": {
     "cross-env": "^7.0.2",
     "shx": "^0.3.2"
-  },
-  "homepage": "https://kyung-a.github.io/dailygram"
+  }
 }
