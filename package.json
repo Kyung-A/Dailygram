@@ -55,7 +55,7 @@
     "copyAll": "shx cp -R src/static build && shx cp -R src/views build",
     "prebuild": "rm -rf build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
-    "start": "node build/init.js",
+    "start": "PRODUCTION=true node build/init.js",
     "prestart": "npm run build"
   },
   "devDependencies": {
