@@ -53,7 +53,7 @@
     "build:assets": "cd src && cross-env WEBPACK_ENV=production&&webpack",
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
     "copyAll": "shx cp -R src/static build && shx cp -R src/views build",
-    "prebuild": "rm -rf build",
+    "prebuild": "shx rm -rf build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "start": "node build/init.js",
     "prestart": "npm run build"
