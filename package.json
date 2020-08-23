@@ -1,6 +1,10 @@
 {
   "name": "instagram",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.16.3",
+    "npm": "6.14.4"
+  },
   "description": "VanillaJS and NodeJS",
   "main": "index.js",
   "keywords": [],
@@ -56,8 +60,8 @@
     "build:assets": "cd src && WEBPACK_ENV=production&&webpack",
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
     "copyAll": "cp -R src/static build && cp -R src/views build",
-    "prebuild": "rm -rf build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
+    "prebuild": "rm -rf build",
     "start": "PRODUCTION=true node build/init.js",
     "prestart": "npm run build"
   },
