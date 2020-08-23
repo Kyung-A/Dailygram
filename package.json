@@ -7,9 +7,6 @@
   "author": "Nam Eungyeong",
   "license": "ISC",
   "dependencies": {
-    "mini-css-extract-plugin": "^0.9.0",
-    "shx": "^0.3.2",
-    "cross-env": "^7.0.2",
     "@babel/cli": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/core": "^7.10.4",
@@ -58,11 +55,14 @@
     "build:assets": "cd src && cross-env WEBPACK_ENV=production&&webpack",
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
     "copyAll": "shx cp -R src/static build && shx cp -R src/views build",
-    "prebuild": "rm -rf build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "start": "PRODUCTION=true node build/init.js",
     "prestart": "npm run build"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "shx": "^0.3.2"
+  },
   "homepage": "https://kyung-a.github.io/dailygram"
 }
