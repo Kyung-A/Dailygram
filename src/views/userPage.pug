@@ -4,14 +4,12 @@ include mixins/imageBlock
 block content
     .user-profile
         .user-profile-header
-            img.avatar(src=user.avatarUrl)
+            img.avatar(src=user.avatarUrl.startsWith("http") ? user.avatarUrl : `/${user.avatarUrl}`)
             h3.profile-username=user.name
         if loggedUser && loggedUser.id === user.id
             .user-edit-button
                 a(href=`/users${routes.editProfile}`)
                     button 프로필 수정하기
-                a.user-delete(href=routes.userDelete(user.id))
-                    button.delete 회원탈퇴
         .home-images.userpage-images
             each item in user.images
                 +imageBlock({
