@@ -42,7 +42,6 @@ export const imageDetail = async (req, res) => {
       .populate("comments");
     res.render("imageDetail", { pageTitle: "ImageDetail", image });
   } catch (error) {
-    res.status(400);
     res.redirect(routes.home);
   }
 };

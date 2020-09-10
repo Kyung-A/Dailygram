@@ -162,17 +162,8 @@ export const userPage = async (req, res) => {
 };
 
 // 프로필 수정 페이지
-export const getEditProfile = async (req, res) => {
-  const {
-    params: { id },
-  } = req;
-  try {
-    const user = await User.findById(id);
-    res.render("editProfile", { pageTitle: "EditProfile", user });
-  } catch (error) {
-    res.redirect(routes.home);
-  }
-};
+export const getEditProfile = async (req, res) =>
+  res.render("editProfile", { pageTitle: "EditProfile" });
 
 export const postEditProfile = async (req, res) => {
   const {
@@ -188,8 +179,7 @@ export const postEditProfile = async (req, res) => {
     });
     res.redirect(routes.me);
   } catch (error) {
-    console.log(error);
-    res.redner("editProfile", { pageTitle: "Edit Profile" });
+    res.redirect(routes.editProfile);
   }
 };
 

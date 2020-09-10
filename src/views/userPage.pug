@@ -10,6 +10,8 @@ block content
             .user-edit-button
                 a(href=`/users${routes.editProfile}`)
                     button 프로필 수정하기
+                a.user-delete(href=routes.userDelete(user.id))
+                    button.delete 회원탈퇴
         .home-images.userpage-images
             each item in user.images
                 +imageBlock({
