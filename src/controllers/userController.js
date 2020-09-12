@@ -190,8 +190,7 @@ export const postEditProfile = async (req, res) => {
     res.redirect(routes.me);
   } catch (error) {
     req.flash("error", "프로필 수정 실패.");
-    console.log(error);
-    res.redner("editProfile", { pageTitle: "Edit Profile" });
+    res.redirect(routes.editProfile);
   }
 };
 

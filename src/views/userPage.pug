@@ -4,7 +4,7 @@ include mixins/imageBlock
 block content
     .user-profile
         .user-profile-header
-            img.avatar(src=user.avatarUrl.startsWith("http") ? user.avatarUrl : `/${user.avatarUrl}`)
+            img.avatar(src=user.avatarUrl)
             h3.profile-username=user.name
         if loggedUser && loggedUser.id === user.id
             .user-edit-button

@@ -25,7 +25,7 @@ const multerAvatar = multer({
 });
 
 export const uploadImage = multerImage.single("imageFile");
-export const uploadAvatar = multerAvatar.single("avatar");
+export const uploadAvatar = multerAvatar.any("avatar");
 
 export const localsMiddleware = (req, res, next) => {
   res.locals.routes = routes;
