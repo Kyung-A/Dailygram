@@ -16,7 +16,9 @@ passport.use(
     {
       clientID: process.env.NAVER_ID,
       clientSecret: process.env.NAVER_SECRET,
-      callbackURL: `http://localhost:7000${routes.naverCallback}`,
+      callbackURL: process.env.PRODUCTION
+        ? `https://gentle-ravine-24356.herokuapp.com${routes.naverCallback}`
+        : `http://localhost:7000${routes.naverCallback}`,
     },
     naverLoginCallback
   )
@@ -28,7 +30,9 @@ passport.use(
     {
       clientID: process.env.KAKAO_ID,
       clientSecret: "",
-      callbackURL: `http://localhost:7000${routes.kakaoCallback}`,
+      callbackURL: process.env.PRODUCTION
+        ? `https://gentle-ravine-24356.herokuapp.com${routes.kakaoCallback}`
+        : `http://localhost:7000${routes.kakaoCallback}`,
     },
     kakaoLoginCallback
   )
