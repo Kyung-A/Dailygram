@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // string으로 저장된 db, 데이터베이스가 있는 위치
-mongoose.connect(process.env.MONGO_URL, {
+mongoose.connect(process.env.MONGO, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
