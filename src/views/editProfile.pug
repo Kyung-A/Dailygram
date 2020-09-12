@@ -3,9 +3,19 @@ extends layouts/main
 block content
     .form-container
         form(action=`/users${routes.editProfile}`, method="post", enctype="multipart/form-data")
-            .fileUpload
-                label(for="avatar") 프로필 수정
-                input(type="file", id="avatar", name="avatar", accept="image/*", placeholder="이름")
+            div.imageUpload
+                label(for="file") 프로필 수정
+                input(
+                    type="file", 
+                    id="jsuploadFile", 
+                    name="imageFile", 
+                    required=true, 
+                    accept="image/*", 
+                    )
+                img(
+                    src="https://da761b9bac0f39e103f9-da88e074220b13c54d3e0f04faed8eda.ssl.cf2.rackcdn.com/uploaded/i/0e9982838_1584457055_instagram-logo-gcck.png", 
+                    alt="미리보기"
+                    )#jsTumbnail
             input(type="text", placeholder="이름", name="name", value=loggedUser.name)
             input(type="email", placeholder="이메일", name="email", value=loggedUser.email)
             input(type="submit", value="수정완료")

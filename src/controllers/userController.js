@@ -12,6 +12,7 @@ export const postJoin = async (req, res, next) => {
     body: { name, email, password, password2 },
   } = req;
   if (password !== password2) {
+    req.flash("error", "비밀번호가 서로 일치하지 않습니다");
     res.status(400);
     res.render("join", { pageTitle: "Join" });
   } else {
@@ -36,10 +37,14 @@ export const getLogin = (req, res) =>
 export const postLogin = passport.authenticate("local", {
   failureRedirect: routes.login,
   successRedirect: routes.home,
+  successFlash: "환영합니다. 데일리그램입니다!",
+  failureFlash: "로그인 실패. 이메일 또는 비밀번호를 확인하세요.",
 });
 
 //네이버 로그인 컨트롤러
 export const naverLogin = passport.authenticate("naver", {
+  successFlash: "환영합니다. 데일리그램입니다!",
+  failureFlash: "로그인 실패. 네이버 계정을 확인해주세요.",
   successRedirect: routes.home,
   failureRedirect: routes.login,
 });
@@ -75,6 +80,8 @@ export const postNaverLogin = (req, res) => {
 
 // 카카오 로그인 컨트롤러
 export const kakaoLogin = passport.authenticate("kakao", {
+  successFlash: "환영합니다. 데일리그램입니다!",
+  failureFlash: "로그인 실패. 카카오 계정을 확인해주세요.",
   successRedirect: routes.home,
   failureRedirect: routes.login,
 });
@@ -115,6 +122,7 @@ export const postKakaoLogin = (req, res) => {
 
 // 로그아웃
 export const logout = (req, res) => {
+  req.flash("info", "로그아웃 완료. 다음에 또 봐요 : )");
   req.logout();
   res.redirect(routes.home);
 };
@@ -126,8 +134,8 @@ export const userDelete = async (req, res) => {
   } = req;
 
   try {
-    const user = await User.findById(id);
-    if (user.id !== req.user.id) {
+    const user = await User.findById(req.user.id);
+    if (String(user.id) !== req.user.id) {
       throw Error();
     } else {
       await User.findByIdAndDelete({ _id: id });
@@ -157,6 +165,7 @@ export const userPage = async (req, res) => {
     const user = await User.findById(id).populate("images");
     res.render("userPage", { pageTitle: "User Page", user });
   } catch (error) {
+    req.flash("error", "존재하지 않는 회원입니다.");
     res.redirect(routes.home);
   }
 };
@@ -175,11 +184,14 @@ export const postEditProfile = async (req, res) => {
       id,
       name,
       email,
-      avatarUrl: file ? file.path : req.user.avatarUrl,
+      avatarUrl: file ? file.location : req.user.avatarUrl,
     });
+    req.flash("success", "프로필 수정 완료.");
     res.redirect(routes.me);
   } catch (error) {
-    res.redirect(routes.editProfile);
+    req.flash("error", "프로필 수정 실패.");
+    console.log(error);
+    res.redner("editProfile", { pageTitle: "Edit Profile" });
   }
 };
 

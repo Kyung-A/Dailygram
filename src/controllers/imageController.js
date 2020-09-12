@@ -1,6 +1,7 @@
 import routes from "../routes";
 import Image from "../models/Image";
 import Comment from "../models/Comment";
+import { s3 } from "../middlewares";
 
 export const home = async (req, res) => {
   try {
@@ -19,10 +20,10 @@ export const getUpload = (req, res) =>
 export const postUpload = async (req, res) => {
   const {
     body: { description },
-    file: { path },
+    file: { location },
   } = req;
   const newImage = await Image.create({
-    fileUrl: path.replace(/\\/g, "/"),
+    fileUrl: location,
     description,
     creator: req.user.id,
   });
@@ -84,6 +85,22 @@ export const deleteImage = async (req, res) => {
   } = req;
   try {
     const image = await Image.findById(id);
+    //아마존 s3 파일 삭제
+    const regex = /(http[s]?:\/\/)?([^/\s]+\/)(.*)/;
+    const filePath = await image.fileUrl.match(regex)[3];
+    const delFile = {
+      Bucket: "dailygram-web",
+      Key: filePath,
+    };
+    await s3
+      .deleteObject(delFile, function (err) {
+        if (String(image.creator) !== req.user.id) {
+          console.log(err);
+        } else {
+          req.flash("success", "이미지가 삭제되었습니다.");
+        }
+      })
+      .promise();
     if (String(image.creator) !== req.user.id) {
       throw Error();
     } else {

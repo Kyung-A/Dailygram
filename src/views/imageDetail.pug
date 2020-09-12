@@ -3,7 +3,7 @@ extends layouts/main
 block content
     .imageDetail-wrap
         .image-box
-            img(src=`/${image.fileUrl}`)
+            img(src=image.fileUrl)
         .image-info
             strong.uploads-user
                 a(href=routes.userPage(image.creator.id))=image.creator.name
