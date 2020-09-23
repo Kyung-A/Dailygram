@@ -30,7 +30,7 @@ export const postUpload = async (req, res) => {
   req.user.images.push(newImage.id);
   req.user.save();
   res.redirect(routes.imageDetail(newImage.id));
-  req.flash("success", "이미지가 업로드 되었습니다.");
+  req.flash("success", "이미지 업로드 완료.");
 };
 
 // 이미지 페이지
@@ -60,8 +60,8 @@ export const getEditImage = async (req, res) => {
       throw Error();
     } else {
       res.render("editImage", { pageTitle: "edit Image", image });
+      req.flash("success", "이미지 수정 완료.");
     }
-    req.flash("success", "이미지 수정 완료.");
   } catch (error) {
     res.redirect(routes.home);
     req.flash("error", "이미지 수정 실패.");
