@@ -186,12 +186,11 @@ export const postEditProfile = async (req, res) => {
       email,
       avatarUrl: file ? file.location : req.user.avatarUrl,
     });
-    req.user.save();
-    req.flash("success", "프로필 수정 완료.");
     res.redirect(routes.me);
+    req.flash("success", "프로필 수정 완료.");
   } catch (error) {
-    req.flash("error", "프로필 수정 실패.");
     res.redirect(routes.editProfile);
+    req.flash("error", "프로필 수정 실패.");
   }
 };
 
