@@ -1,6 +1,7 @@
 .imageBlock {
   width: 100%;
   position: relative;
+  overflow: hidden;
   a {
     max-width: 100%;
     img {

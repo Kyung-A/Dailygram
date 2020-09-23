@@ -1,6 +1,6 @@
 @keyframes flashAnimation {
   0% {
-    transform: translateY(-70px);
+    transform: translateY(70px);
   }
   5% {
     transform: translateY(0px);
@@ -9,19 +9,19 @@
     transform: translateY(0px);
   }
   100% {
-    transform: translateY(-70px);
+    transform: translateY(70px);
   }
 }
 
 .flash-message-container {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   padding: 20px;
   font-family: $font;
   text-align: center;
-  z-index: 999;
+  z-index: 9999;
   animation: flashAnimation 3s ease-in forwards;
   &.error {
     background-color: rgb(233, 52, 52);
