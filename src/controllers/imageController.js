@@ -100,19 +100,17 @@ export const deleteImage = async (req, res) => {
         if (String(image.creator) !== req.user.id) {
           console.log(err);
         } else {
-          req.flash("success", "이미지가 삭제되었습니다.");
+          console.log("파일이 제거되었습니다");
         }
       })
       .promise();
-    if (String(image.creator) !== req.user.id) {
-      throw Error();
-    } else {
-      await Image.findOneAndRemove({ _id: id });
-    }
-  } catch (error) {
-    console.log(error);
+
+    await Image.findOneAndRemove({ _id: id });
+    res.redirect(routes.home);
+    req.flash("success", "이미지가 삭제되었습니다.");
+  } catch {
+    res.status(400);
   }
-  res.redirect(routes.home);
 };
 
 // 좋아요 기능
