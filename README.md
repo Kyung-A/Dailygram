@@ -25,3 +25,7 @@
 ### 작업과정/소개
 
 <img src="http://kyunga.co.kr/images/dailygramProcess.jpg">
+
+---
+
+_2020.09.30 업데이트_
