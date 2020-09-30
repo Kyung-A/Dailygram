@@ -1,17 +1,8 @@
-# Dailygram Clone coding
+# Dailygram
 
-## Skill used
+## 이미지를 업로드하며 유저들과 공유가 가능한 SNS 웹 어플리케이션
 
-- [x] Vanilla Js
-- [x] Node JS
-- [x] Express JS
-- [x] Pug
-- [x] Scss
-- [x] Webpack
-- [x] Passport
-- [x] babel
-
-## Page
+### Page
 
 - [x] Home
 - [x] Join
@@ -24,5 +15,5 @@
 - [x] Image Collect
 - [x] Like Btn
 - [x] Comment
-- [] Direct
-- [] Delete User
+
+!작업과정/소개 <img src="http://kyunga.co.kr/images/dailygramProcess.jpg" width="1440" height="5400">
