@@ -16,4 +16,12 @@
 - [x] Like Btn
 - [x] Comment
 
-!작업과정/소개 <img src="http://kyunga.co.kr/images/dailygramProcess.jpg" width="1440" height="5400">
+---
+
+_사이트 바로가기👉_ https://gentle-ravine-24356.herokuapp.com/
+
+---
+
+### 작업과정/소개
+
+<img src="http://kyunga.co.kr/images/dailygramProcess.jpg">
