@@ -1,6 +1,6 @@
 # Dailygram
 
-## 이미지를 업로드하며 유저들과 공유가 가능한 SNS 웹 어플리케이션
+## 이미지를 업로드하며 유저들과 공유가 가능한 SNS 웹 어플리케이션🖼
 
 ### Page
 
@@ -18,7 +18,7 @@
 
 ---
 
-_사이트 바로가기👉_ https://gentle-ravine-24356.herokuapp.com/
+**사이트 바로가기👉** https://gentle-ravine-24356.herokuapp.com/
 
 ---
 
