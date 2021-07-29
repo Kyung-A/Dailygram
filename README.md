@@ -1,8 +1,15 @@
 # Dailygram
 
-## 이미지를 업로드하며 유저들과 공유가 가능한 SNS 웹 어플리케이션🖼
+이미지를 업로드하며 유저들과 공유가 가능한 SNS 웹 어플리케이션 🖼
 
-### Page
+---
+### 1. 사이트
+
+**heroku 배포 사이트 바로가기 👉 https://gentle-ravine-24356.herokuapp.com/**
+
+---
+
+### 2. Page
 
 - [x] Home
 - [x] Join
@@ -16,16 +23,5 @@
 - [x] Like Btn
 - [x] Comment
 
----
-
-**사이트 바로가기👉** https://gentle-ravine-24356.herokuapp.com/
-
----
-
-### 작업과정/소개
-
-<img src="http://kyunga.co.kr/images/dailygramProcess.jpg">
-
----
-
-_2020.09.30 업데이트_
+### 3. 작업과정 및 소개
+![dailygramProcess](https://user-images.githubusercontent.com/65346989/127494366-d34e76b7-40a7-45ac-8806-b7a1437b0dea.jpg)
