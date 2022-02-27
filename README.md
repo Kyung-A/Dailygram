@@ -3,11 +3,6 @@
 이미지를 업로드하며 유저들과 공유가 가능한 SNS 웹 어플리케이션 🖼
 
 ---
-### 1. 사이트
-
-**heroku 배포 사이트 바로가기 👉 https://gentle-ravine-24356.herokuapp.com/**
-
----
 
 ### 2. Page
 
